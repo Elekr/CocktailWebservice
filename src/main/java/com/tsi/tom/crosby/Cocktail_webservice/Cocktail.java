@@ -1,5 +1,7 @@
 package com.tsi.tom.crosby.Cocktail_webservice;
 
+import com.google.gson.Gson;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
