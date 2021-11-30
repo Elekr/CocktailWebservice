@@ -23,6 +23,8 @@ public class CocktailWebserviceApplication {
 	private IngredientRepository ingredientRepos;
 	@Autowired
 	private GlassRepository glassRepos;
+	@Autowired
+	private EquipmentRepository equipmentRepos;
 
 	public static void main(String[] args) {
 		SpringApplication.run(CocktailWebserviceApplication.class, args);
@@ -49,6 +51,12 @@ public class CocktailWebserviceApplication {
 	public @ResponseBody
 	Iterable<Glass> getAllGlasses() {
 		return glassRepos.findAll();
+	}
+
+	@GetMapping("/all/equipment")
+	public @ResponseBody
+	Iterable<Equipment> getAllEquipment() {
+		return equipmentRepos.findAll();
 	}
 
 	//POST
@@ -78,6 +86,15 @@ public class CocktailWebserviceApplication {
 		Glass item = new Glass(type, volume, description);
 		glassRepos.save(item);
 		return "Glass saved into list";
+	}
+
+	@PostMapping("/add/equipment")
+	public @ResponseBody
+	String addEquipment(@RequestParam String name, String type, String method) {
+
+		Equipment equip = new Equipment(name, type, method);
+		equipmentRepos.save(equip);
+		return "Equipment saved into list";
 	}
 
 	//DELETE
@@ -114,6 +131,18 @@ public class CocktailWebserviceApplication {
 		} else {
 			ingredientRepos.deleteById(glassNo);
 			return "poggers! but glass";
+		}
+	}
+
+	@DeleteMapping("/delete/equipment")
+	public @ResponseBody
+	String deleteEquipment(@RequestParam int equipNo) {
+		Optional<Equipment> glass = equipmentRepos.findById(equipNo);
+		if (glass.isEmpty()) {
+			return "it ain't workin chief but equip";
+		} else {
+			ingredientRepos.deleteById(equipNo);
+			return "poggers! but equip";
 		}
 	}
 }
