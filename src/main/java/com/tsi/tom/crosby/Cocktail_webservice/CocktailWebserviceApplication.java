@@ -97,7 +97,7 @@ public class CocktailWebserviceApplication {
 		return "Equipment saved into list";
 	}
 
-	//DELETE
+	//DELETE TODO: Remove this
 	@DeleteMapping("/delete/cocktail")
 	public @ResponseBody
 	String deleteACocktail(@RequestParam int drink) {

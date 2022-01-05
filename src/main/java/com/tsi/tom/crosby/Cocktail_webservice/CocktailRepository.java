@@ -11,4 +11,8 @@ public interface CocktailRepository extends CrudRepository<Cocktail, Integer> {
     @Query(value = "SELECT * FROM cocktail.cocktail WHERE Name = 'Mojito'", nativeQuery = true)
     //Stores data relating to the query
     List<Cocktail> findAllProjectedBy();
+
+    @Query(value = "SHOW DATABASES LIKE 'cocktail'", nativeQuery = true)
+        //Stores data relating to the query
+    List<Cocktail> DoesDBExist();
 }
