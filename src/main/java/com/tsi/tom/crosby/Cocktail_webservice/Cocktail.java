@@ -16,6 +16,8 @@ public class Cocktail {
     @Id
     @GeneratedValue(strategy= GenerationType.TABLE)
     private int id;
+    String name;
+    int Cocktail_Instructions_number_of_instructions;
 
     public Cocktail(String name, int Cocktail_Instructions_number_of_instructions) {
         this.name = name;
@@ -38,6 +40,5 @@ public class Cocktail {
         this.name = name;
     }
 
-    String name;
-    int Cocktail_Instructions_number_of_instructions;
+
 }

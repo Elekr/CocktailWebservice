@@ -11,6 +11,7 @@ import java.util.Optional;
 
 @SpringBootApplication
 @RestController
+@CrossOrigin
 @RequestMapping("/cocktails")
 public class CocktailWebserviceApplication {
 
