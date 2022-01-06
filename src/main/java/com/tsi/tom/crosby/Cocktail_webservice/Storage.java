@@ -27,7 +27,7 @@ public class Storage {
     }
 
     public void setSize(int size) {
-        Size = size;
+        this.Size = size;
     }
 
     public Storage(String name, String type, int size) {

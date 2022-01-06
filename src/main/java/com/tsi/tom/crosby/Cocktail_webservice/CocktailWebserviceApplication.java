@@ -15,9 +15,6 @@ import java.util.Optional;
 @RequestMapping("/cocktails")
 public class CocktailWebserviceApplication {
 
-	//Generates a list of containers to be used for the ingredients (pre-selected)
-	List<Storage> containers = new ArrayList();
-
 	@Autowired
 	private CocktailRepository cocktailRepos;
 	@Autowired

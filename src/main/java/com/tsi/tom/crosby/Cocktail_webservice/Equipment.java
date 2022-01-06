@@ -11,15 +11,15 @@ public class Equipment {
     public Equipment() {
     }
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.TABLE)
+    private int id;
+
     public Equipment(String name, String type, String method) {
         Name = name;
         Type = type;
         Method = method;
     }
-
-    @Id
-    @GeneratedValue(strategy= GenerationType.TABLE)
-    private int id;
 
     String Name;
     String Type;
