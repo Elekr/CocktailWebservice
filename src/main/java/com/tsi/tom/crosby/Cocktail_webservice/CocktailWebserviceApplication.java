@@ -28,6 +28,13 @@ public class CocktailWebserviceApplication {
 		SpringApplication.run(CocktailWebserviceApplication.class, args);
 	}
 
+	public CocktailWebserviceApplication(CocktailRepository cocktailRepos, IngredientRepository ingredientRepos, GlassRepository glassRepos, EquipmentRepository equipmentRepos) {
+		this.cocktailRepos = cocktailRepos;
+		this.ingredientRepos = ingredientRepos;
+		this.glassRepos = glassRepos;
+		this.equipmentRepos = equipmentRepos;
+	}
+
 	//GET
 	@GetMapping("/all")
 	public @ResponseBody
