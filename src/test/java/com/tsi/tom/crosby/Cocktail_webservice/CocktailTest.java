@@ -16,6 +16,7 @@ public class CocktailTest {
 
         cocktail.setName("TestDrink2");
         cocktail.setCocktail_Instructions_number_of_instructions(242);
+        assertEquals(cocktail.getId() == 0, true, "The value should be '0'");
         assertEquals(cocktail.getName() == "TestDrink2", true, "The value should be 'TestDrink2'");
         assertEquals(cocktail.getCocktail_Instructions_number_of_instructions() == 242, true, "The value should be '242'");
 

@@ -96,9 +96,8 @@ public class CocktailWebserviceApplicationTest {
     @Test
     public void testDeleteCocktails()
     {
-//        cocktailWebserviceApplication.addCocktail("mojito", 2);
-//        String dd = cocktailWebserviceApplication.deleteACocktail(1);
-//        ArgumentCaptor<Cocktail> d = ArgumentCaptor.forClass(Cocktail.class);
-//        System.out.println(dd);
+        cocktailWebserviceApplication.addCocktail("mojito", 2);
+        String dd = cocktailWebserviceApplication.deleteACocktail(1);
+        ArgumentCaptor<Cocktail> d = ArgumentCaptor.forClass(Cocktail.class);
     }
 }
