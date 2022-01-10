@@ -14,5 +14,5 @@ public interface CocktailRepository extends CrudRepository<Cocktail, Integer> {
 
     @Query(value = "SHOW DATABASES LIKE 'cocktail'", nativeQuery = true)
         //Stores data relating to the query
-    List<Cocktail> DoesDBExist();
+    List<Cocktail> doesDBExist();
 }
