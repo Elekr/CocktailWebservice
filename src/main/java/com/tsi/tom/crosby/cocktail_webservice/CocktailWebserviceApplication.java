@@ -106,7 +106,7 @@ public class CocktailWebserviceApplication {
 	String deleteACocktail(@RequestParam int drink) {
 		Optional<Cocktail> cocktail = cocktailRepos.findById(drink);
 		if (cocktail.isEmpty()) {
-			return "pog";
+			return "it ain't workin chief";
 		} else {
 			cocktailRepos.deleteById(drink);
 			return "poggers!";
@@ -147,5 +147,18 @@ public class CocktailWebserviceApplication {
 			ingredientRepos.deleteById(equipNo);
 			return "poggers! but equip";
 		}
+	}
+
+	@PutMapping("/update/cocktail")
+	public @ResponseBody
+	String replaceCocktail(@RequestParam int cocktailNo, @RequestParam String cocktailName, @RequestParam int instr)
+	{
+		//TODO: add validation
+		Optional<Cocktail> cocktailEntity =  cocktailRepos.findById(cocktailNo);
+		Cocktail cocktail = cocktailEntity.get();
+		cocktail.setName(cocktailName);
+		cocktail.setCocktail_Instructions_number_of_instructions(instr);
+		cocktailRepos.save(cocktail);
+		return "cocktail updated";
 	}
 }

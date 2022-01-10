@@ -122,6 +122,4 @@ public class CocktailWebserviceApplicationTests {
         assertEquals("poggers! but equip", actual);
     }
 
-    @
-
 }
