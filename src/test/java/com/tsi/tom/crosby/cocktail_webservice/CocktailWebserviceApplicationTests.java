@@ -1,12 +1,13 @@
 package com.tsi.tom.crosby.cocktail_webservice;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
@@ -85,8 +86,42 @@ public class CocktailWebserviceApplicationTests {
     public void testDeleteCocktails()
     {
         cocktailWebserviceApplication.addCocktail("mojito", 2);
-        String dd = cocktailWebserviceApplication.deleteACocktail(1);
-        ArgumentCaptor<Cocktail> d = ArgumentCaptor.forClass(Cocktail.class);
-        assertEquals("pog", dd, "Added to the database");
+        Cocktail cocktail = new Cocktail("mojito", 2);
+        when(cocktailRepository.findById(0)).thenReturn(Optional.of(cocktail));
+        String actual = cocktailWebserviceApplication.deleteACocktail(cocktail.getId());
+        assertEquals(actual, "poggers!");
     }
+
+    @Test
+    public void testDeleteIngredient()
+    {
+        cocktailWebserviceApplication.addIngredient("Milk", "2%", 2.2, "milky", "fridge");
+        Ingredient ingredient = new Ingredient("Milk", "2%", 2.2, "milky", "fridge");
+        when(ingredientRepository.findById(0)).thenReturn(Optional.of(ingredient));
+        String actual = cocktailWebserviceApplication.deleteIngredient(ingredient.getId());
+        assertEquals("poggers! but ingredient", actual);
+    }
+
+    @Test
+    public void testDeleteGlass()
+    {
+        cocktailWebserviceApplication.addGlass("Glassy", 500, "for milk");
+        Glass glass = new Glass("Glassy", 500, "for milk");
+        when(glassRepository.findById(0)).thenReturn(Optional.of(glass));
+        String actual = cocktailWebserviceApplication.deleteGlass(glass.getId());
+        assertEquals("poggers! but glass", actual);
+    }
+
+    @Test
+    public void testDeleteEquipment()
+    {
+        cocktailWebserviceApplication.addEquipment("Spoon", "spoony", "stir");
+        Equipment equipment = new Equipment("Spoon", "spoony", "stir");
+        when(equipmentRepository.findById(0)).thenReturn(Optional.of(equipment));
+        String actual = cocktailWebserviceApplication.deleteEquipment(equipment.getId());
+        assertEquals("poggers! but equip", actual);
+    }
+
+    @
+
 }

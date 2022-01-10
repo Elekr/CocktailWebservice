@@ -69,4 +69,7 @@ public class Ingredient {
         Storage_Name = storage_Name;
     }
 
+    public int getId() {
+        return id;
+    }
 }

@@ -68,4 +68,40 @@ public class AccessDatabaseStepDefs {
         }
         assertEquals( true, testState, "Cocktail found in response");
     }
+
+    @Given("The website is running but goes to the wrong route")
+    public void theWebsiteIsRunningButGoesToTheWrongRoute() throws IOException {
+        URL url = new URL("http://13.40.33.55:8080/cocktails/all");
+        try {
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            //TODO: get the response code
+            //Assert whether the Website can be reached
+            //int responseCode = con.getResponseCode();
+            //assertEquals(HttpURLConnection.HTTP_OK, con.getResponseCode(), "Connection Succeeded");
+            //System.out.println(responseCode);
+        }
+        catch(MalformedURLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Then("I won't be able to access the website")
+    public void iWonTBeAbleToAccessTheWebsite() {
+    }
+
+    @Given("The website is currently running up")
+    public void theWebsiteIsCurrentlyRunningUp() {
+    }
+
+    @When("I try to look up the drink that I want {string}")
+    public void iTryToLookUpTheDrinkThatIWant(String arg0) {
+    }
+
+    @And("The drink does not exist")
+    public void theDrinkDoesNotExist() {
+    }
+
+    @Then("The database will return that the drink does not exist")
+    public void theDatabaseWillReturnThatTheDrinkDoesNotExist() {
+    }
 }

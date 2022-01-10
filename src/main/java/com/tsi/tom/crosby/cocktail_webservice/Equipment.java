@@ -48,4 +48,8 @@ public class Equipment {
     public void setMethod(String method) {
         Method = method;
     }
+
+    public int getId() {
+        return id;
+    }
 }

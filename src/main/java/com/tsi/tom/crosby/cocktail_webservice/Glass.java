@@ -45,6 +45,10 @@ public class Glass {
         Description = description;
     }
 
+    public int getId() {
+        return id;
+    }
+
     String type;
     int volume;
     String Description;

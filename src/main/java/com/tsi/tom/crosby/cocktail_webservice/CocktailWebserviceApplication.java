@@ -115,7 +115,7 @@ public class CocktailWebserviceApplication {
 
 	@DeleteMapping("/delete/ingredient")
 	public @ResponseBody
-	String deleteInstruction(@RequestParam int instr) {
+	String deleteIngredient(@RequestParam int instr) {
 		Optional<Ingredient> ingredient = ingredientRepos.findById(instr);
 		if (ingredient.isEmpty()) {
 			return "it ain't workin chief but ingredient";
