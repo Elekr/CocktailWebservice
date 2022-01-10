@@ -10,5 +10,4 @@ import org.junit.runner.RunWith;
                 glue = {"com.tsi.tom.crosby.Cocktail_webservice"})
 public class CucumberRunnerTest {
 
-
 }

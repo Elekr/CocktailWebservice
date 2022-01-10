@@ -49,7 +49,7 @@ public class CocktailWebserviceApplicationTest {
     {
         cocktailWebserviceApplication.getAllCocktails();
         verify(cocktailRepository).findAll();
-        cocktailWebserviceApplication.getAllInstructions();
+        cocktailWebserviceApplication.getAllIngredients();
         verify(ingredientRepository).findAll();
         cocktailWebserviceApplication.getAllGlasses();
         verify(glassRepository).findAll();
@@ -58,7 +58,7 @@ public class CocktailWebserviceApplicationTest {
     }
 
     @Test
-    public void testAdd()
+    public void testAddCocktails()
     {
         String dd = cocktailWebserviceApplication.addCocktail("mojito", 2);
         ArgumentCaptor<Cocktail> d = ArgumentCaptor.forClass(Cocktail.class);
@@ -66,5 +66,39 @@ public class CocktailWebserviceApplicationTest {
         assertEquals("Cocktail saved into list", dd, "The value should be 'Cocktail saved into list'");
     }
 
+    @Test
+    public void testAddIngredients()
+    {
+        String dd = cocktailWebserviceApplication.addIngredient("Milk", "2%", 2.2, "milky", "fridge");
+        ArgumentCaptor<Ingredient> d = ArgumentCaptor.forClass(Ingredient.class);
+        verify(ingredientRepository).save(d.capture());
+        assertEquals("Ingredient saved into list", dd, "The value should be 'Ingredient saved into list'");
+    }
 
+    @Test
+    public void testAddGlass()
+    {
+        String dd = cocktailWebserviceApplication.addGlass("Glassy", 500, "for milk");
+        ArgumentCaptor<Glass> d = ArgumentCaptor.forClass(Glass.class);
+        verify(glassRepository).save(d.capture());
+        assertEquals("Glass saved into list", dd, "The value should be 'Glass saved into list'");
+    }
+
+    @Test
+    public void testAddEquipment()
+    {
+        String dd = cocktailWebserviceApplication.addEquipment("Spoon", "spoony", "stir");
+        ArgumentCaptor<Equipment> d = ArgumentCaptor.forClass(Equipment.class);
+        verify(equipmentRepository).save(d.capture());
+        assertEquals("Equipment saved into list", dd, "The value should be 'Equipment saved into list'");
+    }
+
+    @Test
+    public void testDeleteCocktails()
+    {
+//        cocktailWebserviceApplication.addCocktail("mojito", 2);
+//        String dd = cocktailWebserviceApplication.deleteACocktail(1);
+//        ArgumentCaptor<Cocktail> d = ArgumentCaptor.forClass(Cocktail.class);
+//        System.out.println(dd);
+    }
 }

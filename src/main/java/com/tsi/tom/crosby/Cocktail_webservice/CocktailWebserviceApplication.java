@@ -48,7 +48,7 @@ public class CocktailWebserviceApplication {
 
 	@GetMapping("/all/ingredients")
 	public @ResponseBody
-	Iterable<Ingredient> getAllInstructions() {
+	Iterable<Ingredient> getAllIngredients() {
 		return ingredientRepos.findAll();
 	}
 
@@ -76,7 +76,7 @@ public class CocktailWebserviceApplication {
 
 	@PostMapping("/add/ingredient")
 	public @ResponseBody
-	String addItem(@RequestParam String Name, String Type, Double ABV,
+	String addIngredient(@RequestParam String Name, String Type, Double ABV,
 				   String Description, String Storage_Name) {
 
 		Ingredient item = new Ingredient(Name, Type, ABV, Description, Storage_Name);
@@ -86,7 +86,7 @@ public class CocktailWebserviceApplication {
 
 	@PostMapping("/add/glass")
 	public @ResponseBody
-	String addItem(@RequestParam String type, int volume, String description) {
+	String addGlass(@RequestParam String type, int volume, String description) {
 
 		Glass item = new Glass(type, volume, description);
 		glassRepos.save(item);
