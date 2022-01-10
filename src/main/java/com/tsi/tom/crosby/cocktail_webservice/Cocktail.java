@@ -17,9 +17,9 @@ public class Cocktail {
     String name;
     int Cocktail_Instructions_number_of_instructions;
 
-    public Cocktail(String name, int Cocktail_Instructions_number_of_instructions) {
+    public Cocktail(String name, int cocktail_Instructions_number_of_instructions) {
         this.name = name;
-        this.Cocktail_Instructions_number_of_instructions = Cocktail_Instructions_number_of_instructions;
+        this.Cocktail_Instructions_number_of_instructions = cocktail_Instructions_number_of_instructions;
     }
 
     public int getCocktail_Instructions() {

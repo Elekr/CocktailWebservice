@@ -19,11 +19,11 @@ public class GlassTest {
         glass.setDescription("still a glass");
 
         assertEquals(true,glass.getType() == "ti", "The value should be 'ti'");
-        assertTrue(glass.getVolume() == 55, "The value should be '55'");
+        assertEquals(55, glass.getVolume(), "The value should be '55'");
         assertEquals(true,glass.getDescription() == "still a glass", "still a glass'");
 
         assertEquals(true,glass1.getType() == null, "The value should be 'null'");
-        assertEquals(glass1.getVolume(), 0,"The value should be 'null'");
+        assertEquals(0, glass1.getVolume(),"The value should be 'null'");
         assertNull(glass1.getDescription(), "The value should be 'null");
     }
 }

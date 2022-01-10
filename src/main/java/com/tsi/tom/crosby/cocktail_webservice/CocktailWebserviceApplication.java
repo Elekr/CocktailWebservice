@@ -106,7 +106,7 @@ public class CocktailWebserviceApplication {
 	String deleteACocktail(@RequestParam int drink) {
 		Optional<Cocktail> cocktail = cocktailRepos.findById(drink);
 		if (cocktail.isEmpty()) {
-			return "it ain't workin chief";
+			return "pog";
 		} else {
 			cocktailRepos.deleteById(drink);
 			return "poggers!";
