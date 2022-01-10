@@ -154,11 +154,19 @@ public class CocktailWebserviceApplication {
 	String replaceCocktail(@RequestParam int cocktailNo, @RequestParam String cocktailName, @RequestParam int instr)
 	{
 		//TODO: add validation
+
 		Optional<Cocktail> cocktailEntity =  cocktailRepos.findById(cocktailNo);
-		Cocktail cocktail = cocktailEntity.get();
-		cocktail.setName(cocktailName);
-		cocktail.setCocktail_Instructions_number_of_instructions(instr);
-		cocktailRepos.save(cocktail);
-		return "cocktail updated";
+		if(cocktailEntity.isEmpty())
+		{
+			return "it aint updatin chief";
+		}
+		else
+		{
+			Cocktail cocktail = cocktailEntity.get();
+			cocktail.setName(cocktailName);
+			cocktail.setCocktail_Instructions_number_of_instructions(instr);
+			cocktailRepos.save(cocktail);
+			return "cocktail updated";
+		}
 	}
 }
