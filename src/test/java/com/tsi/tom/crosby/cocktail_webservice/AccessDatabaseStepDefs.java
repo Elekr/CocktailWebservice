@@ -1,6 +1,5 @@
-package com.tsi.tom.crosby.Cocktail_webservice;
+package com.tsi.tom.crosby.cocktail_webservice;
 
-import com.google.gson.Gson;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -67,6 +66,6 @@ public class AccessDatabaseStepDefs {
         if (response.toLowerCase().contains(drink.toLowerCase())) {
             testState = true;
         }
-        assertEquals(testState, true, "Cocktail found in response");
+        assertEquals( true, testState, "Cocktail found in response");
     }
 }

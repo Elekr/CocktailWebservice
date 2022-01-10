@@ -1,12 +1,10 @@
-package com.tsi.tom.crosby.Cocktail_webservice;
+package com.tsi.tom.crosby.cocktail_webservice;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @SpringBootApplication

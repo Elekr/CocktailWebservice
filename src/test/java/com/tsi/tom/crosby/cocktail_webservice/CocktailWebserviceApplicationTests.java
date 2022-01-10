@@ -1,6 +1,5 @@
-package com.tsi.tom.crosby.Cocktail_webservice;
+package com.tsi.tom.crosby.cocktail_webservice;
 
-import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest

@@ -1,6 +1,4 @@
-package com.tsi.tom.crosby.Cocktail_webservice;
-
-import com.google.gson.Gson;
+package com.tsi.tom.crosby.cocktail_webservice;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,12 +22,12 @@ public class Cocktail {
         this.Cocktail_Instructions_number_of_instructions = Cocktail_Instructions_number_of_instructions;
     }
 
-    public int getCocktail_Instructions_number_of_instructions() {
+    public int getCocktail_Instructions() {
         return Cocktail_Instructions_number_of_instructions;
     }
 
-    public void setCocktail_Instructions_number_of_instructions(int cocktail_Instructions_number_of_instructions) {
-        Cocktail_Instructions_number_of_instructions = cocktail_Instructions_number_of_instructions;
+    public void setCocktail_Instructions_number_of_instructions(int cocktailInstruction) {
+        Cocktail_Instructions_number_of_instructions = cocktailInstruction;
     }
 
     public String getName() {

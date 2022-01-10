@@ -1,4 +1,4 @@
-package com.tsi.tom.crosby.Cocktail_webservice;
+package com.tsi.tom.crosby.cocktail_webservice;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
