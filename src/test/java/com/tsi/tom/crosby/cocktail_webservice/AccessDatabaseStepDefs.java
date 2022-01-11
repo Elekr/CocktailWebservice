@@ -4,8 +4,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,13 +12,15 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 public class AccessDatabaseStepDefs {
 
     String response;
 
     @Given("The website is currently running")
     public void theWebsiteIsCurrentlyRunning() throws IOException {
-        URL url = new URL("http://13.40.33.55:8080/cocktails/all");
+        URL url = new URL("http://18.170.52.254:8080/cocktails/all");
         try {
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             //Assert whether the Website can be reached
@@ -34,7 +34,7 @@ public class AccessDatabaseStepDefs {
     @When("I try to look up the drink I want {string}")
     public void iTryToLookUpTheIWant(String drink) throws IOException{
         boolean testState = false;
-        URL url = new URL("http://13.40.33.55:8080/cocktails/all");
+        URL url = new URL("http://18.170.52.254:8080/cocktails/all");
         try {
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
@@ -49,6 +49,7 @@ public class AccessDatabaseStepDefs {
             }
             br.close();
             response = sb.toString();
+            System.out.println(response);
         }
         catch(MalformedURLException e) {
             e.printStackTrace();
@@ -66,31 +67,41 @@ public class AccessDatabaseStepDefs {
         if (response.toLowerCase().contains(drink.toLowerCase())) {
             testState = true;
         }
-        assertEquals( true, testState, "Cocktail found in response");
+        assertTrue(testState, "Cocktail found in response");
     }
+//
+//    @Given("The website is running but goes to the wrong route")
+//    public void theWebsiteIsRunningButGoesToTheWrongRoute() throws IOException {
+//        URL url = new URL("http://18.170.52.254:8080/cocktails/all/wrong");
+//    }
 
-    @Given("The website is running but goes to the wrong route")
-    public void theWebsiteIsRunningButGoesToTheWrongRoute() throws IOException {
-        URL url = new URL("http://13.40.33.55:8080/cocktails/all");
+    @Then("I won't be able to access the website")
+    public void iWonTBeAbleToAccessTheWebsite() throws IOException{
+        URL url = new URL("http://18.170.52.2545:8080/cocktails/all/wrong");
         try {
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             //TODO: get the response code
             //Assert whether the Website can be reached
-            //int responseCode = con.getResponseCode();
-            //assertEquals(HttpURLConnection.HTTP_OK, con.getResponseCode(), "Connection Succeeded");
-            //System.out.println(responseCode);
+            int responseCode = con.getResponseCode();
+            assertEquals(HttpURLConnection.HTTP_NOT_FOUND, con.getResponseCode(), "Connection Succeeded");
+            System.out.println(responseCode);
         }
         catch(MalformedURLException e) {
             e.printStackTrace();
         }
     }
 
-    @Then("I won't be able to access the website")
-    public void iWonTBeAbleToAccessTheWebsite() {
-    }
-
     @Given("The website is currently running up")
-    public void theWebsiteIsCurrentlyRunningUp() {
+    public void theWebsiteIsCurrentlyRunningUp() throws IOException {
+        URL url = new URL("http://18.170.52.254:8080/cocktails/all");
+        try {
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            //Assert whether the Website can be reached
+            assertEquals(HttpURLConnection.HTTP_OK, con.getResponseCode(), "Connection Succeeded");
+        }
+        catch(MalformedURLException e) {
+            e.printStackTrace();
+        }
     }
 
     @When("I try to look up the drink that I want {string}")

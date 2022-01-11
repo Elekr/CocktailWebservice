@@ -100,7 +100,6 @@ public class CocktailWebserviceApplication {
 		return "Equipment saved into list";
 	}
 
-	//DELETE TODO: Remove this
 	@DeleteMapping("/delete/cocktail")
 	public @ResponseBody
 	String deleteACocktail(@RequestParam int drink) {
@@ -153,8 +152,6 @@ public class CocktailWebserviceApplication {
 	public @ResponseBody
 	String replaceCocktail(@RequestParam int cocktailNo, @RequestParam String cocktailName, @RequestParam int instr)
 	{
-		//TODO: add validation
-
 		Optional<Cocktail> cocktailEntity =  cocktailRepos.findById(cocktailNo);
 		if(cocktailEntity.isEmpty())
 		{

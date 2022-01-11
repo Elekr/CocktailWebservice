@@ -89,7 +89,7 @@ public class CocktailWebserviceApplicationTests {
         Cocktail cocktail = new Cocktail("mojito", 2);
         when(cocktailRepository.findById(0)).thenReturn(Optional.of(cocktail));
         String actual = cocktailWebserviceApplication.deleteACocktail(cocktail.getId());
-        assertEquals(actual, "poggers!");
+        assertEquals("poggers!", actual);
     }
 
     @Test
