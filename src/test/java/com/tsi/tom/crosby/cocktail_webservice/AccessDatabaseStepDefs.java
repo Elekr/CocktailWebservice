@@ -69,11 +69,11 @@ public class AccessDatabaseStepDefs {
         }
         assertTrue(testState, "Cocktail found in response");
     }
-//
-//    @Given("The website is running but goes to the wrong route")
-//    public void theWebsiteIsRunningButGoesToTheWrongRoute() throws IOException {
-//        URL url = new URL("http://18.170.52.254:8080/cocktails/all/wrong");
-//    }
+
+    @Given("The website is running but goes to the wrong route")
+    public void theWebsiteIsRunningButGoesToTheWrongRoute() throws IOException {
+        URL url = new URL("http://18.170.52.254:8080/cocktails/all/wrong");
+    }
 
     @Then("I won't be able to access the website")
     public void iWonTBeAbleToAccessTheWebsite() throws IOException{
