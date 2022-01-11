@@ -78,7 +78,7 @@ public class AccessDatabaseStepDefs {
 
     @Then("I won't be able to access the website")
     public void iWonTBeAbleToAccessTheWebsite() throws IOException{
-        URL url = new URL("http://18.170.52.2545:8080/cocktails/all/wrongone");
+        URL url = new URL("http://18.170.52.254:8080/cocktails/all/wrongone");
         try {
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             //TODO: get the response code
