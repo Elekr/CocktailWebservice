@@ -1,6 +1,6 @@
 package com.tsi.tom.crosby.cocktail_webservice;
 
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -20,6 +20,5 @@ public class StorageTest {
         assertSame("restaurant", storage.getName(), "The value should be 'restaurant'");
         assertSame("bigger", storage.getType(), "The value should be 'bigger'");
         assertEquals(503, storage.getSize(), "The value should be '503'");
-
     }
 }

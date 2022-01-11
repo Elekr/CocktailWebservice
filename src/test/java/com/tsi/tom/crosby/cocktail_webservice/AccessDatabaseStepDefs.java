@@ -50,6 +50,7 @@ public class AccessDatabaseStepDefs {
             br.close();
             response = sb.toString();
             System.out.println(response);
+            con.disconnect();
         }
         catch(MalformedURLException e) {
             e.printStackTrace();
@@ -72,12 +73,12 @@ public class AccessDatabaseStepDefs {
 
     @Given("The website is running but goes to the wrong route")
     public void theWebsiteIsRunningButGoesToTheWrongRoute() throws IOException {
-        URL url = new URL("http://18.170.52.254:8080/cocktails/all/wrong");
+        URL url = new URL("http://18.170.52.254:8080/cocktails/all/wrongone");
     }
 
     @Then("I won't be able to access the website")
     public void iWonTBeAbleToAccessTheWebsite() throws IOException{
-        URL url = new URL("http://18.170.52.2545:8080/cocktails/all/wrong");
+        URL url = new URL("http://18.170.52.2545:8080/cocktails/all/wrongone");
         try {
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             //TODO: get the response code
@@ -85,6 +86,7 @@ public class AccessDatabaseStepDefs {
             int responseCode = con.getResponseCode();
             assertEquals(HttpURLConnection.HTTP_NOT_FOUND, con.getResponseCode(), "Connection Succeeded");
             System.out.println(responseCode);
+            con.disconnect();
         }
         catch(MalformedURLException e) {
             e.printStackTrace();

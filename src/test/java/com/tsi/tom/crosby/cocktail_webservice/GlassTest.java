@@ -1,6 +1,6 @@
 package com.tsi.tom.crosby.cocktail_webservice;
 
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
