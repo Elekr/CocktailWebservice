@@ -16,5 +16,5 @@ Feature: Access the database
   Scenario: The drink I want does not exist
     Given The website is currently running up
     When I try to look up the drink that I want "appletini"
-    And The drink does not exist
+    And The "appletini" does not exist
     Then The database will return that the drink does not exist

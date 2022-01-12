@@ -33,7 +33,6 @@ public class AccessDatabaseStepDefs {
 
     @When("I try to look up the drink I want {string}")
     public void iTryToLookUpTheIWant(String drink) throws IOException{
-        boolean testState = false;
         URL url = new URL("http://18.170.52.254:8080/cocktails/all");
         try {
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -49,7 +48,6 @@ public class AccessDatabaseStepDefs {
             }
             br.close();
             response = sb.toString();
-            System.out.println(response);
             con.disconnect();
         }
         catch(MalformedURLException e) {
@@ -107,14 +105,41 @@ public class AccessDatabaseStepDefs {
     }
 
     @When("I try to look up the drink that I want {string}")
-    public void iTryToLookUpTheDrinkThatIWant(String arg0) {
+    public void iTryToLookUpTheDrinkThatIWant(String arg0) throws IOException {
+        URL url = new URL("http://18.170.52.254:8080/cocktails/all");
+        try {
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("GET");
+            con.connect();
+            int status = con.getResponseCode();
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+            StringBuilder sb = new StringBuilder();
+            String line;
+            while ((line = br.readLine()) != null) {
+                sb.append(line);
+            }
+            br.close();
+            response = sb.toString();
+            con.disconnect();
+        }
+        catch(MalformedURLException e) {
+            e.printStackTrace();
+        }
     }
 
-    @And("The drink does not exist")
-    public void theDrinkDoesNotExist() {
+    @And("The {string} does not exist")
+    public void theDoesNotExist(String drink) {
+        boolean testState = false;
+        if (response.toLowerCase().contains(drink.toLowerCase())) {
+            testState = true;
+        }
+        assertFalse(testState, "Cocktail found in response");
     }
 
     @Then("The database will return that the drink does not exist")
-    public void theDatabaseWillReturnThatTheDrinkDoesNotExist() {
+    public void theDatabaseWillReturnThatTheDoesNotExist() {
+        //TODO:this
     }
+
 }
